@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Roaster:
+  = @bean.roaster_id
+%p
+  %b Name:
+  = @bean.name
+%p
+  %b Roast level:
+  = @bean.roast_level_id
+%p
+  %b Origin:
+  = @bean.origin_id
+%p
+  %b Notes:
+  = @bean.notes
+%p
+  %b In stock:
+  = @bean.in_stock
+
+= link_to 'Edit', edit_bean_path(@bean)
+\|
+= link_to 'Back', beans_path

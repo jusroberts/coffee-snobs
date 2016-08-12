@@ -1,0 +1,2 @@
+class BeanRating < ApplicationRecord
+end

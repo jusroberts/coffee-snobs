@@ -1,0 +1,31 @@
+%h1 Listing beans
+
+%table
+  %thead
+    %tr
+      %th Roaster
+      %th Name
+      %th Roast level
+      %th Origin
+      %th Notes
+      %th In stock
+      %th
+      %th
+      %th
+
+  %tbody
+    - @beans.each do |bean|
+      %tr
+        %td= bean.roaster_id
+        %td= bean.name
+        %td= bean.roast_level_id
+        %td= bean.origin_id
+        %td= bean.notes
+        %td= bean.in_stock
+        %td= link_to 'Show', bean
+        %td= link_to 'Edit', edit_bean_path(bean)
+        %td= link_to 'Destroy', bean, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bean', new_bean_path

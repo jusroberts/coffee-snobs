@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coffee_id: 1
+  user_id: 1
+  rating: 1
+  buy_again: false
+  comments: MyText
+
+two:
+  coffee_id: 1
+  user_id: 1
+  rating: 1
+  buy_again: false
+  comments: MyText
