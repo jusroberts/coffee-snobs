@@ -1,0 +1,19 @@
+= form_for @roaster do |f|
+  - if @roaster.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@roaster.errors.count, "error")} prohibited this roaster from being saved:"
+      %ul
+        - @roaster.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :location
+    = f.text_field :location
+  .field
+    = f.label :website
+    = f.text_field :website
+  .actions
+    = f.submit 'Save'

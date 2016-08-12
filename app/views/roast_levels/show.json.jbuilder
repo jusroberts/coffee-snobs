@@ -1,0 +1,1 @@
+json.partial! "roast_levels/roast_level", roast_level: @roast_level

@@ -1,0 +1,21 @@
+%h1 Listing roast_levels
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @roast_levels.each do |roast_level|
+      %tr
+        %td= roast_level.name
+        %td= link_to 'Show', roast_level
+        %td= link_to 'Edit', edit_roast_level_path(roast_level)
+        %td= link_to 'Destroy', roast_level, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Roast level', new_roast_level_path

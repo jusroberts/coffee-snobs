@@ -1,0 +1,1 @@
+json.array! @roast_levels, partial: 'roast_levels/roast_level', as: :roast_level

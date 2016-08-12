@@ -1,0 +1,25 @@
+%h1 Listing roasters
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Location
+      %th Website
+      %th
+      %th
+      %th
+
+  %tbody
+    - @roasters.each do |roaster|
+      %tr
+        %td= roaster.name
+        %td= roaster.location
+        %td= roaster.website
+        %td= link_to 'Show', roaster
+        %td= link_to 'Edit', edit_roaster_path(roaster)
+        %td= link_to 'Destroy', roaster, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Roaster', new_roaster_path
