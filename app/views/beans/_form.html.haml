@@ -7,17 +7,17 @@
           %li= msg
 
   .field
-    = f.label :roaster_id
-    = f.number_field :roaster_id
-  .field
     = f.label :name
     = f.text_field :name
   .field
+    = f.label :roaster_id
+    = f.select :roaster_id, options_for_select(roasters_list)
+  .field
     = f.label :roast_level_id
-    = f.number_field :roast_level_id
+    = f.select :roast_level_id, options_for_select(roast_levels_list)
   .field
     = f.label :origin_id
-    = f.number_field :origin_id
+    = f.select :origin_id, options_for_select(origins_list)
   .field
     = f.label :notes
     = f.text_area :notes

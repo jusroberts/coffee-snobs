@@ -25,11 +25,15 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'haml-rails'
 gem 'devise'
+gem 'omniauth'
 gem 'omniauth-github'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-byebug'
+  gem 'dotenv-rails'
 end
 
 group :development do
