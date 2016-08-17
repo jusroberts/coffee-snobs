@@ -7,6 +7,10 @@ class BeansController < ApplicationController
     @beans = Bean.all
   end
 
+  def current
+    @beans = Bean.all.where(in_stock: true)
+  end
+
   # GET /beans/1
   # GET /beans/1.json
   def show
