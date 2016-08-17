@@ -10,6 +10,13 @@ module BeansHelper
         BeanRating.all.where(user_id: user.id, bean_id: bean_id)[0].rating rescue nil
     end
 
+    def rating_distribution bean_id
+        ratings = BeanRating.all.where(bean_id: bean_id)
+        buckets = rating_buckets
+        ratings.each { |r| buckets[r.rating - 1] += 1 }
+        buckets
+    end
+
     def bean_rating_options
         [
             ["5 - I would bathe in this", 5],
@@ -20,5 +27,10 @@ module BeansHelper
         ]
     end
 
+    private
+
+    def rating_buckets
+        [0,0,0,0,0]
+    end
 
 end

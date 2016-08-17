@@ -1,27 +1,29 @@
-%h1 Current Beans
+.container
+  %h1 Current Beans
 
-%table.table
-  %thead
-    %tr
-      %th Name
-      %th Roaster
-      %th Roast level
-      %th Origin
-      %th Notes
-      %th Average Rating
-      %th Your Rating
-
-  %tbody
-    - @beans.each do |bean|
+  %table.table
+    %thead
       %tr
-        %td= bean.name
-        %td= roaster_name bean.roaster_id
-        %td= roast_level_name bean.roast_level_id
-        %td= origin_name bean.origin_id
-        %td= bean.notes
-        %td= average_rating bean.id
-        -if current_user
-          =form_tag(rate_bean_path(bean_id: bean.id)) do
-            %td
-              = select_tag "rating", options_for_select(bean_rating_options, user_rating(current_user, bean.id)), include_blank: true
-              = submit_tag "submit"
+        %th Name
+        %th Roaster
+        %th Roast level
+        %th Origin
+        %th Notes
+        %th Average Rating
+        %th Your Rating
+
+    %tbody
+      - @beans.each do |bean|
+        %tr
+          %td= bean.name
+          %td= roaster_name bean.roaster_id
+          %td= roast_level_name bean.roast_level_id
+          %td= origin_name bean.origin_id
+          %td= bean.notes
+          %td= average_rating bean.id
+          -if current_user
+            =form_tag(rate_bean_path(bean_id: bean.id)) do
+              %td
+                = select_tag "rating", options_for_select(bean_rating_options, user_rating(current_user, bean.id)), include_blank: true
+                = submit_tag "submit"
+          %td= link_to 'Show', bean

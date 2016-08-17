@@ -1,31 +1,32 @@
-%h1 Bean History
+.container
+  %h1 Bean History
 
-%table.table
-  %thead
-    %tr
-      %th Name
-      %th Roaster
-      %th Roast level
-      %th Origin
-      %th Notes
-      %th In stock
-      %th Average Rating
-      %th
-      %th
-
-  %tbody
-    - @beans.each do |bean|
+  %table.table
+    %thead
       %tr
-        %td= bean.name
-        %td= roaster_name bean.roaster_id
-        %td= roast_level_name bean.roast_level_id
-        %td= origin_name bean.origin_id
-        %td= bean.notes
-        %td= bean.in_stock
-        %td= average_rating bean.id
-        %td= link_to 'Edit', edit_bean_path(bean)
-        %td
+        %th Name
+        %th Roaster
+        %th Roast level
+        %th Origin
+        %th Notes
+        %th In stock
+        %th Average Rating
+        %th
+        %th
 
-%br
+    %tbody
+      - @beans.each do |bean|
+        %tr
+          %td= bean.name
+          %td= roaster_name bean.roaster_id
+          %td= roast_level_name bean.roast_level_id
+          %td= origin_name bean.origin_id
+          %td= bean.notes
+          %td= bean.in_stock
+          %td= average_rating bean.id
+          %td= link_to 'Show', bean
+          %td= link_to 'Edit', edit_bean_path(bean)
 
-= link_to 'New Bean', new_bean_path
+  %br
+
+  = link_to 'New Bean', new_bean_path
