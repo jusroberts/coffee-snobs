@@ -9,9 +9,8 @@
       %th Origin
       %th Notes
       %th In stock
-      %th
-      %th
-      %th
+      %th Average Rating
+      %th Your Rating
 
   %tbody
     - @beans.each do |bean|
@@ -22,6 +21,9 @@
         %td= origin_name bean.origin_id
         %td= bean.notes
         %td= bean.in_stock
-        %td= link_to 'Show', bean
-        %td= link_to 'Edit', edit_bean_path(bean)
-        %td= link_to 'Destroy', bean, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= average_rating bean.id
+        -if current_user
+          =form_tag(rate_bean_path(bean_id: bean.id)) do
+            %td
+              = select_tag "rating", options_for_select(bean_rating_options, user_rating(current_user, bean.id)), include_blank: true
+              = submit_tag "submit"

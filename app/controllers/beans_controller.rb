@@ -1,5 +1,6 @@
 class BeansController < ApplicationController
   before_action :set_bean, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:rate, :create, :update]
 
   # GET /beans
   # GET /beans.json
@@ -64,6 +65,20 @@ class BeansController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def rate
+    bean_rating = BeanRating.all.where(bean_id: params[:bean_id], user_id: current_user.id)[0]
+    unless params[:rating].blank?
+      if bean_rating
+        bean_rating.update(rating: params[:rating])
+      else
+        bean_rating = BeanRating.new(bean_id: params[:bean_id], user_id: current_user.id, rating: params[:rating])
+        bean_rating.save
+      end
+    end
+    redirect_to current_beans_path
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

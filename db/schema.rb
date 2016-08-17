@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812182714) do
+ActiveRecord::Schema.define(version: 20160817131154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bean_ratings", force: :cascade do |t|
-    t.integer  "coffee_id"
     t.integer  "user_id"
     t.integer  "rating"
     t.boolean  "buy_again"
     t.text     "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "bean_id"
   end
 
   create_table "beans", force: :cascade do |t|
