@@ -1,29 +1,8 @@
 %p#notice= notice
 
 .container
-  %h2=@bean.name
-  .row
-    .col-md-4.col-sm-12
-      %table.table
-        %tbody
-          %tr
-            %td.strong Roaster
-            %td= roaster_name @bean.roaster_id
-          %tr
-            %td Roast Level
-            %td= roast_level_name @bean.roast_level_id
-          %tr
-            %td Origin
-            %td= origin_name @bean.origin_id
-          %tr
-            %td Notes
-            %td= @bean.notes
-          %tr
-            %td In Stock
-            %td= @bean.in_stock
-          %tr
-            %td Average Rating
-            %td= average_rating @bean.id
+  =render 'card', bean: @bean, show_avg: true
+
   -distribution = rating_distribution(@bean.id)
   .row
     .col-md-4.col-sm-12

@@ -1,0 +1,33 @@
+-user_rate = user_rating(current_user, bean.id)
+
+.col-lg-4.col-md-6.col-sm-12
+  %h2=bean.name
+  %table.table
+    %tbody
+      %tr
+        %td.strong Roaster
+        %td= roaster_name bean.roaster_id
+      %tr
+        %td Roast Level
+        %td= roast_level_name bean.roast_level_id
+      %tr
+        %td Origin
+        %td= origin_name bean.origin_id
+      %tr
+        %td Notes
+        %td= bean.notes
+      %tr
+        %td In Stock
+        %td= bean.in_stock
+      -if user_rate || show_avg
+        %tr
+          %td Average Rating
+          %td= average_rating bean.id
+      -if current_user
+        =form_tag(rate_bean_path(bean_id: bean.id)) do
+          =field_set_tag do
+            %tr
+              %td Your Rating
+              %td
+                = select_tag "rating", options_for_select(bean_rating_options, user_rating(current_user, bean.id)), include_blank: true
+                = submit_tag "submit"
