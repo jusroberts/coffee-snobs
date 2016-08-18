@@ -1,7 +1,8 @@
 %p#notice= notice
 
 .container
-  =render 'card', bean: @bean, show_avg: true
+  .row
+    =render 'card', bean: @bean, show_avg: true
 
   -distribution = rating_distribution(@bean.id)
   .row
