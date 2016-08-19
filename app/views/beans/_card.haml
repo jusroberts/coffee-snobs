@@ -27,5 +27,5 @@
           %tr
             %td Your Rating
             %td.form-inline
-              = select_tag "rating", options_for_select(bean_rating_options, user_rating(current_user, bean.id)), include_blank: true, class: 'form-control'
+              = select_tag "rating", options_for_select(bean_rating_options, user_rating(current_user, bean.id)), include_blank: true, class: 'form-control short-select'
               = submit_tag "submit", class: 'btn btn-primary'
