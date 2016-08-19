@@ -8,7 +8,6 @@
       %th Website
       %th
       %th
-      %th
 
   %tbody
     - @roasters.each do |roaster|
@@ -18,7 +17,6 @@
         %td= roaster.website
         %td= link_to 'Show', roaster
         %td= link_to 'Edit', edit_roaster_path(roaster)
-        %td= link_to 'Destroy', roaster, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

@@ -1,5 +1,6 @@
 class RoastLevelsController < ApplicationController
   before_action :set_roast_level, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update]
 
   # GET /roast_levels
   # GET /roast_levels.json

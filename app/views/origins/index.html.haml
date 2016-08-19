@@ -6,7 +6,6 @@
       %th Name
       %th
       %th
-      %th
 
   %tbody
     - @origins.each do |origin|
@@ -14,7 +13,6 @@
         %td= origin.name
         %td= link_to 'Show', origin
         %td= link_to 'Edit', edit_origin_path(origin)
-        %td= link_to 'Destroy', origin, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

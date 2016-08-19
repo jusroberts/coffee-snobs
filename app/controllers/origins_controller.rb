@@ -1,5 +1,6 @@
 class OriginsController < ApplicationController
   before_action :set_origin, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update]
 
   # GET /origins
   # GET /origins.json
