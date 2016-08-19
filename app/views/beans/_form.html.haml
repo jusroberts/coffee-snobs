@@ -1,4 +1,4 @@
-= form_for @bean do |f|
+= form_for @bean, class: 'form-group' do |f|
   - if @bean.errors.any?
     #error_explanation
       %h2= "#{pluralize(@bean.errors.count, "error")} prohibited this bean from being saved:"
