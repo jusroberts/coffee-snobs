@@ -2,7 +2,7 @@ module BeansHelper
 
     def average_rating bean_id
         ratings = BeanRating.all.where(bean_id: bean_id).map { |b| b.rating }
-        ratings.inject { |sum, element| sum + element }.to_f / ratings.size
+        (ratings.inject { |sum, element| sum + element }.to_f / ratings.size).round(1)
     end
 
     def user_rating user, bean_id
