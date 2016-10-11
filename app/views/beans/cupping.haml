@@ -1,0 +1,4 @@
+.container-fluid
+  -@beans.each do |bean|
+    .col-lg-4.col-md-6.col-sm-12
+      .well=render 'card', bean: bean, show_avg: false

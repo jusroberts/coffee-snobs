@@ -1,16 +1,16 @@
 .container
   %h1 Bean History
-
+  = link_to 'New Bean', new_bean_path, class: "btn btn-primary"
   %table.table
     %thead
       %tr
-        %th Name
-        %th Roaster
-        %th Roast level
-        %th Origin
-        %th Notes
-        %th In stock
-        %th Average Rating
+        %th=sortable "name"
+        %th=sortable "roaster_id", "Roaster"
+        %th=sortable "roast_level_id", "Roast level"
+        %th=sortable "origin_id", "Origin"
+        %th=sortable "notes"
+        %th=sortable "in_stock"
+        %th=sortable "average_rating"
         %th
         %th
 
@@ -23,10 +23,10 @@
           %td= origin_name bean.origin_id
           %td= bean.notes
           %td= bean.in_stock
-          %td= average_rating bean.id
+          %td= bean.average_rating
           %td= link_to 'Show', bean
           %td= link_to 'Edit', edit_bean_path(bean)
 
   %br
 
-  = link_to 'New Bean', new_bean_path
+  = link_to 'New Bean', new_bean_path, class: "btn btn-primary"

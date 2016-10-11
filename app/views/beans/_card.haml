@@ -1,5 +1,15 @@
 -user_rate = user_rating(current_user, bean.id)
-%h2=bean.name
+.row
+  .col-sm-6
+    %h2=bean.name
+  .col-sm-6
+    -if current_user
+      =form_tag(bean_toggle_in_stock_path(bean_id: bean.id)) do
+        =field_set_tag do
+          -stock_string = "In Stock!"
+          -stock_string = "No more :(" if bean.in_stock
+          =submit_tag stock_string, class: 'btn btn-primary', data: { confirm: 'Are you sure?' }
+
 %table.table
   %tbody
     %tr
@@ -20,7 +30,7 @@
     -if user_rate || show_avg
       %tr
         %td Average Rating
-        %td= average_rating bean.id
+        %td= bean.average_rating
     -if current_user
       =form_tag(rate_bean_path(bean_id: bean.id)) do
         =field_set_tag do
