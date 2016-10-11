@@ -126,6 +126,6 @@ class BeansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bean_params
-      params.require(:bean).permit(:roaster_id, :name, :roast_level_id, :origin_id, :notes, :in_stock, :cupping)
+      params.require(:bean).permit(:roaster_id, :name, :roast_level_id, :origin_id, :notes, :in_stock)
     end
 end
